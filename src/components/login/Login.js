@@ -75,14 +75,15 @@ class Login extends React.Component {
 
     this.LoginStore.post(username, password)
       .then(data => {
+        const content = data.content;
         localStorage.clear();
-        localStorage.setItem('access-token', data.token);
-        localStorage.setItem('user-name', data.name);
+        localStorage.setItem('access-token', content.token);
+        localStorage.setItem('user-name', content.name);
         this.setState({
           error: null,
           loading: false
         }, () => {
-          //this.context.router.history.push('/a/admin/usuarios');
+          this.context.router.history.push('/a/admin/usuarios');
         })
       })
       .catch(error => {
@@ -95,7 +96,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <Loading isLoading={this.state.loading} loadingClassName="loading oscure"
+      <Loading isLoading={this.state.loading} loadingClassName="loading"
                spinner={() => <CircularProgress style={spinnerStyle}/>}>
         <div id="login-page" style={loginStyle}>
 
