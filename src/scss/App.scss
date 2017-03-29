@@ -1,0 +1,23 @@
+$header-bg: #2196F3;
+$menu-width: 250px !default;
+
+@import 'menu';
+@import 'users';
+@import 'variablesbootstrap';
+@import 'pagination';
+
+.main-content {
+  position: relative;
+  width: 100%;
+}
+
+.title {
+  font-weight: normal;
+  color: rgb(189, 189, 189);
+  margin: 0;
+  padding: 10px 20px;
+}
+
+a {
+  text-decoration: none;
+}

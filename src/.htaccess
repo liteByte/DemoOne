@@ -1,0 +1,11 @@
+RewriteEngine On
+
+#DirectoryIndex build/index.html
+
+#RewriteRule ^staging-front/.*$ /staging-front/build/ [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} !^/staging-front/build/
+#RewriteRule ^(.*)$ build/$1 [L]
+RewriteRule ^(.*)$ build/index.html?/$1 [L]
