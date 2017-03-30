@@ -104,8 +104,7 @@ class Users extends React.Component {
                spinner={() => <CircularProgress style={spinnerStyle}/>}>
         <div>
           <UserSearch searchDocument={this.searchDocument} searchName={this.searchName} navigate={this.props.navigate}/>
-          <UsersTable getUsers={this.getUsers} data={this.state.usersToShow}
-                      loading={this.handleLoading} navigate={this.props.navigate}/>
+          <UsersTable getUsers={this.getUsers} data={this.state.usersToShow} navigate={this.props.navigate}/>
           <FloatingActionButton style={actionButtonStyle} onClick={() => this.props.navigate("/a/admin/users/create")}>
             <ContentAdd/>
           </FloatingActionButton>

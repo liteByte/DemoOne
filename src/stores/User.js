@@ -111,6 +111,19 @@ class User extends Store {
     return Store.send(200);
   }
 
+  deleteUser(token, id) {
+    if (!Login.validateToken(token))
+      return Store.error(401, "Token invalid");
+
+    let user = this.users.findIndex(user => id === user.user_id);
+    if (user === -1)
+      return Store.error(404, "User not found");
+
+    this.users.splice(user, 1);
+
+    return Store.send(200);
+  }
+
 }
 
 function getInstance() {

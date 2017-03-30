@@ -12,10 +12,6 @@ import IconClass from "material-ui/svg-icons/action/class";
 
 export default class Drawer extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   createItem = (id, title, subtitle, url, icon) => {
     return (
       <ListItem
