@@ -83,7 +83,11 @@ class User extends Store {
     if (!Login.validateToken(token))
       return Store.error(401, "Token invalid");
 
-    return Store.send(200, this.users.find(user => id === user.user_id));
+    let user = this.users.find(user => id === user.user_id);
+    if (!user)
+      return Store.error(404, "User not found");
+
+    return Store.send(200, user);
   }
 
   getRoles(token) {

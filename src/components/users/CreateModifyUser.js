@@ -109,11 +109,15 @@ export default class NewAndModifyUser extends React.Component {
           });
         })
         .catch(error => {
-          this.setState({
-            errorVisibility: true,
-            errorMessage: error.msg,
-            loadingUser: false
-          });
+          if (error.code === 404) {
+            this.props.navigate("/a/admin/users");
+          } else {
+            this.setState({
+              errorVisibility: true,
+              errorMessage: error.msg,
+              loadingUser: false
+            });
+          }
         });
     } else {
       this.setState({
