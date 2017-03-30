@@ -83,7 +83,7 @@ class Login extends React.Component {
           error: null,
           loading: false
         }, () => {
-          this.context.router.history.push('/a/admin/usuarios');
+          this.context.router.history.push('/a/admin/users');
         })
       })
       .catch(error => {

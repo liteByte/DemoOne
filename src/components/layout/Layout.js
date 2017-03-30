@@ -12,21 +12,6 @@ import Restricted from "../Restricted";
 import Users from "../users/Users";
 import ModifyUser from "../users/CreateModifyUser";
 
-import Banks from "../banks/Banks";
-import ModifyBank from "../banks/CreateModifyBank";
-
-import Specialities from "../specialities/Specialitys";
-import ModifySpeciality from "../specialities/CreateModifySpeciality";
-
-import Professionals from "../professionals/Professionals";
-import ModifyProfessional from "../professionals/CreateModifyProfessional";
-
-import Insurances from "../insurances/Insurances";
-import ModifyInsurance from "../insurances/CreateModifyInsurance";
-
-import Plans from "../plans/Plans";
-import ModifyPlan from "../plans/CreateModifyPlan";
-
 export default class Layout extends React.Component {
 
   constructor(props) {
@@ -84,21 +69,16 @@ export default class Layout extends React.Component {
       ]);
     };
     return (
-      <div>
+      <div style={{height: "100%"}}>
         <AppBar
           title={this.state.title}
           iconElementLeft={<IconButton onTouchTap={this.toggleDrawer}><NavigationMenu/></IconButton>}
           iconElementRight={<Avatar/>}
         />
-        <div className="main-content">
+        <div className="main-content" style={{height: "calc(100% - 64px)"}}>
           <Switch>
 
             {ABM("users", Users, ModifyUser, ModifyUser)}
-            {ABM("banks", Banks, ModifyBank, ModifyBank)}
-            {ABM("specialities", Specialities, ModifySpeciality, ModifySpeciality)}
-            {ABM("professionals", Professionals, ModifyProfessional, ModifyProfessional)}
-            {ABM("insurances", Insurances, ModifyInsurance, ModifyInsurance)}
-            {ABM("plans", Plans, ModifyPlan, ModifyPlan)}
 
             <Redirect to="/"/>
 
