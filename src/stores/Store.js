@@ -14,7 +14,7 @@ export default class Store {
     });
   }
 
-  static send(code, content) {
+  static send(code, content = null) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({

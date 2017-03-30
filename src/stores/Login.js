@@ -12,4 +12,8 @@ export default class Login extends Store {
     });
   }
 
+  static validateToken(token) {
+    return token === 'completelyValidToken';
+  }
+
 }
