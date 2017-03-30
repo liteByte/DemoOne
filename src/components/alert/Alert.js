@@ -11,6 +11,8 @@ export default class GenericAlert extends React.Component {
         open={this.props.open}
         onRequestClose={this.props.exit}
         autoScrollBodyContent={true}
+        actionsContainerStyle={{borderTop: "none"}}
+        titleStyle={{borderBottom: "none"}}
       >
         {this.props.text}
       </Dialog>
