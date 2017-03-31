@@ -1,5 +1,6 @@
 import React from "react";
 import TextField from "material-ui/TextField";
+import RaisedButton from "material-ui/RaisedButton";
 
 export default class UserSearch extends React.Component {
 
@@ -27,7 +28,12 @@ export default class UserSearch extends React.Component {
     return (
       <div>
         {/*<IconSearch color={grey500} style={{position: "relative", top: 7}}/>*/}
-        <TextField onChange={this.props.search} hintText="Search by name, id or email"/>
+        <TextField hintText="Search by name, id or email" style={{minWidth: 256, width: "50%", float: "left"}}
+                   onChange={this.props.search}/>
+        <div style={{width: "50%", float: "left", textAlign: "right"}}>
+          <RaisedButton label="Create User" primary={true} style={{minWidth: 170}}
+                        onClick={() => this.props.navigate("/a/admin/users/create")}/>
+        </div>
       </div>
     )
   }
