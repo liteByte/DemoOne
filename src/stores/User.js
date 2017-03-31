@@ -9,7 +9,7 @@ class User extends Store {
     {
       "user_id": 1,
       "document_type": "DNI",
-      "document_number": "1234567",
+      "document_number": "54622706",
       "name": "Robert",
       "last_name": "Smithson",
       "email": "robrob@email.com",
@@ -18,11 +18,65 @@ class User extends Store {
     {
       "user_id": 2,
       "document_type": "DNI",
-      "document_number": "12345678",
+      "document_number": "39957598",
       "name": "Ed",
       "last_name": "Williams",
       "email": "edwilliams@email.com",
       "roles": [{"name": "Operator", "role_id": "2"}]
+    },
+    {
+      "user_id": 3,
+      "document_type": "DNI",
+      "document_number": "25772425",
+      "name": "Hunt",
+      "last_name": "Wilkins",
+      "email": "wilkins32@quintity.name",
+      "roles": [{"name": "Administrator", "role_id": "1"}]
+    },
+    {
+      "user_id": 4,
+      "document_type": "DNI",
+      "document_number": "76067999",
+      "name": "Maryann",
+      "last_name": "Arnold",
+      "email": "maryann.arnold@biohab.biz",
+      "roles": [{"name": "Administrator", "role_id": "1"}]
+    },
+    {
+      "user_id": 5,
+      "document_type": "DNI",
+      "document_number": "39506271",
+      "name": "Britney",
+      "last_name": "Crawford",
+      "email": "bcrawford@waretel.com",
+      "roles": [{"name": "Administrator", "role_id": "1"}]
+    },
+    {
+      "user_id": 6,
+      "document_type": "DNI",
+      "document_number": "89997456",
+      "name": "Silva",
+      "last_name": "Marshall",
+      "email": "silvam@exovent.co.uk",
+      "roles": [{"name": "Administrator", "role_id": "1"}]
+    },
+    {
+      "user_id": 7,
+      "document_type": "DNI",
+      "document_number": "47125537",
+      "name": "Lott",
+      "last_name": "Bradford",
+      "email": "lott.bradford@automon.biz",
+      "roles": [{"name": "Administrator", "role_id": "1"}]
+    },
+    {
+      "user_id": 8,
+      "document_type": "DNI",
+      "document_number": "39000052",
+      "name": "Sherman",
+      "last_name": "Guy",
+      "email": "shermanguy@gaptec.me",
+      "roles": [{"name": "Administrator", "role_id": "1"}]
     }
   ];
 
