@@ -1,8 +1,5 @@
 import React from "react";
-import {Cell, Row, Table} from "react-responsive-table";
 import TextField from "material-ui/TextField";
-import IconSearch from "material-ui/svg-icons/action/search";
-import {grey500} from "material-ui/styles/colors";
 
 export default class UserSearch extends React.Component {
 
@@ -28,14 +25,10 @@ export default class UserSearch extends React.Component {
 
   render() {
     return (
-      <Table material style={{padding: 0}}>
-        <Row key="typeDocRow">
-          <Cell key={1} minWidthPx={150} style={{margin: 0}}>
-            <IconSearch color={grey500} style={{position: "relative", top: 7}}/>
-            <TextField onChange={this.props.search} hintText="Search"/>
-          </Cell>
-        </Row>
-      </Table>
+      <div>
+        {/*<IconSearch color={grey500} style={{position: "relative", top: 7}}/>*/}
+        <TextField onChange={this.props.search} hintText="Search by name, id or email"/>
+      </div>
     )
   }
 }
