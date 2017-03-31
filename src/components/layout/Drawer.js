@@ -12,11 +12,11 @@ import IconClass from "material-ui/svg-icons/action/class";
 
 export default class Drawer extends React.Component {
 
-  createItem = (id, title, subtitle, url, icon) => {
+  createItem = (id, title, url, icon) => {
     return (
       <ListItem
         key={id}
-        primaryText={subtitle}
+        primaryText={title}
         leftIcon={icon}
         onClick={() => {
           this.props.navigate(url);
@@ -35,17 +35,17 @@ export default class Drawer extends React.Component {
       >
         <List>
           <ListItem
-            primaryText="Administrarion"
+            primaryText="Administration"
             leftIcon={<IconHome/>}
             initiallyOpen={true}
             primaryTogglesNestedList={true}
             nestedItems={[
-              this.createItem(1, 'Administration', 'Users', '/a/admin/users', <IconAccountBox/>),
-              this.createItem(2, 'Administration', 'Banks', '/a/admin/banks', <IconAccountBalance/>),
-              this.createItem(3, 'Administration', 'Specialities', '/a/admin/specialities', <IconTrendingUp/>),
-              this.createItem(4, 'Administration', 'Professionals', '/a/admin/professionals', <IconWork/>),
-              this.createItem(5, 'Administration', 'Insurances', '/a/admin/insurances', <IconLocalHospital/>),
-              this.createItem(6, 'Administration', 'Plans', '/a/admin/plans', <IconClass/>),
+              this.createItem(1, 'Users', '/a/admin/users', <IconAccountBox/>),
+              this.createItem(2, 'Banks', '/a/admin/banks', <IconAccountBalance/>),
+              this.createItem(3, 'Specialities', '/a/admin/specialities', <IconTrendingUp/>),
+              this.createItem(4, 'Professionals', '/a/admin/professionals', <IconWork/>),
+              this.createItem(5, 'Insurances', '/a/admin/insurances', <IconLocalHospital/>),
+              this.createItem(6, 'Plans', '/a/admin/plans', <IconClass/>),
             ]}
           />
         </List>

@@ -91,6 +91,10 @@ class Users extends React.Component {
 
 export default Users;
 
+Users.propTypes = {
+  navigate: React.PropTypes.func.isRequired
+};
+
 Users.contextTypes = {
   router: React.PropTypes.object.isRequired
 };

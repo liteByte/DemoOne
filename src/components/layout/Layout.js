@@ -20,7 +20,7 @@ export default class Layout extends React.Component {
       responsiveMenu: false,
       loading: false,
       drawerOpen: false,
-      title: "Traditional"
+      title: "Users"
     };
   }
 
