@@ -46,7 +46,7 @@ class UsersTable extends React.Component {
 
     for (let i = startingItem; i < length; i++) {
       tableData.push(
-        <Row key={data[i].user_id} striped>
+        <Row key={data[i].user_id}>
           <Cell key={data[i].user_id + '-name'} minWidthPx={100}>{data[i].name + " " + data[i].last_name}</Cell>
           <Cell key={data[i].user_id + '-dni'} minWidthPx={70}>{data[i].document_number}</Cell>
           <Cell key={data[i].user_id + '-email'} minWidthPx={100}>{data[i].email}</Cell>
@@ -116,7 +116,7 @@ class UsersTable extends React.Component {
             <Cell thead minWidthPx={100} key="cheader-1">Name</Cell>
             <Cell thead minWidthPx={70} key="cheader-2">Id</Cell>
             <Cell thead minWidthPx={100} key="cheader-3">Email</Cell>
-            <Cell thead minWidthPx={75} key="cheader-4">Action</Cell>
+            <Cell thead minWidthPx={75} key="cheader-4">Actions</Cell>
           </Row>
           {this.getTable()}
         </Table>

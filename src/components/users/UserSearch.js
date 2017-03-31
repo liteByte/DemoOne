@@ -1,45 +1,40 @@
 import React from "react";
 import {Cell, Row, Table} from "react-responsive-table";
 import TextField from "material-ui/TextField";
-import FontIcon from "material-ui/FontIcon";
-
-const styles = {
-  margin: "auto 10px 2px 10px"
-};
-
-const searchLabelStyles = {
-  margin: "auto 10px 2px 10px",
-  display: "flex",
-  alignItems: "center",
-};
+import IconSearch from "material-ui/svg-icons/action/search";
+import {grey500} from "material-ui/styles/colors";
 
 export default class UserSearch extends React.Component {
 
-  constructor(props) {
-    super(props);
+  static filter(data, keyword) {
 
-    this.state = {
-      tipoDoc: "dni"
-    };
-  }
+    const toShow = [];
+    const regex = new RegExp(keyword);
+
+    for (let i = 0; i < data.length; i++) {
+
+      for (let key in data[i]) {
+        if (data[i].hasOwnProperty(key)) {
+          if (data[i][key].toString().toLowerCase().match(regex) !== null) {
+            toShow.push(data[i]);
+            break;
+          }
+        }
+      }
+    }
+
+    return toShow;
+  };
 
   render() {
     return (
       <Table material style={{padding: 0}}>
-        <form>
-          <Row key="typeDocRow">
-            <Cell key="searchlabel" style={searchLabelStyles}>
-              <FontIcon className="material-icons">search</FontIcon>
-              <p style={{marginLeft: 10}}>Buscador</p>
-            </Cell>
-            <Cell minWidthPx={150} key="nameText" style={styles}>
-              <TextField onChange={this.props.searchName} hintText="Nombre y Apellido"/>
-            </Cell>
-            <Cell minWidthPx={150} key="docText" style={styles}>
-              <TextField type="number" onChange={this.props.searchDocument} hintText="Nro de Documento"/>
-            </Cell>
-          </Row>
-        </form>
+        <Row key="typeDocRow">
+          <Cell key={1} minWidthPx={150} style={{margin: 0}}>
+            <IconSearch color={grey500} style={{position: "relative", top: 7}}/>
+            <TextField onChange={this.props.search} hintText="Search"/>
+          </Cell>
+        </Row>
       </Table>
     )
   }

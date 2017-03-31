@@ -28,8 +28,7 @@ class Users extends React.Component {
     this.state = {
       users: [],
       usersToShow: [],
-      searchByDocument: "",
-      searchByName: "",
+      search: "",
       loading: true
     };
   }
@@ -48,7 +47,7 @@ class Users extends React.Component {
           users: data.content,
           loading: false
         }, () => {
-          this.findUsers();
+          this.updateTable();
         });
       })
       .catch(error => {
@@ -60,50 +59,26 @@ class Users extends React.Component {
       });
   };
 
-  searchDocument = (e) => {
+  search = (e) => {
     this.setState({
-      searchByDocument: e.target.value
+      search: e.target.value.toString().toLowerCase()
     }, () => {
-      this.findUsers();
+      this.updateTable();
     });
   };
 
-  searchName = (e) => {
+  updateTable = () => {
     this.setState({
-      searchByName: e.target.value
-    }, () => {
-      this.findUsers();
+      usersToShow: UserSearch.filter(this.state.users, this.state.search)
     });
   };
-
-  findUsers() {
-    const data = this.state.users;
-    const usersToShow = [];
-    const documentToSearch = this.state.searchByDocument.toLowerCase();
-    const nameToSearch = this.state.searchByName.toLowerCase();
-
-    for (let i = 0; i < data.length; i++) {
-      const completeName = data[i].name + ' ' + data[i].last_name;
-
-      const documentSearch = data[i].document_number.toLowerCase().match(new RegExp(documentToSearch));
-      const nameSearch = completeName.toLowerCase().match(new RegExp(nameToSearch));
-
-      if (documentSearch !== null && nameSearch !== null) {
-        usersToShow.push(data[i]);
-      }
-    }
-
-    this.setState({
-      usersToShow: usersToShow
-    });
-  }
 
   render() {
     return (
       <Loading isLoading={this.state.loading} loadingClassName="loading" style={{height: "100%"}}
                spinner={() => <CircularProgress style={spinnerStyle}/>}>
-        <div>
-          <UserSearch searchDocument={this.searchDocument} searchName={this.searchName} navigate={this.props.navigate}/>
+        <div style={{padding: 20}}>
+          <UserSearch search={this.search} navigate={this.props.navigate}/>
           <UsersTable getUsers={this.getUsers} data={this.state.usersToShow} navigate={this.props.navigate}/>
           <FloatingActionButton style={actionButtonStyle} onClick={() => this.props.navigate("/a/admin/users/create")}>
             <ContentAdd/>
