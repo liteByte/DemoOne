@@ -1,80 +1,21 @@
-//
-// Pagination (multiple pages)
-// --------------------------------------------------
-$font-size-base: 14px !default;
-
-//** Unit-less `line-height` for use in components like buttons.
-$line-height-base: 1.428571429 !default; // 20/14
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
-
-$link-color: $brand-primary !default;
-//** Link hover color set via `darken()` function.
-$link-hover-color: darken($link-color, 15%) !default;
-//** Link hover decoration.
-$link-hover-decoration: underline !default;
-
-$gray-light: lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter: lighten($gray-base, 93.5%) !default; // #eee
-
-$brand-primary: darken(#428bca, 6.5%) !default; // #337ab7
-
-$border-radius-base: 4px !default;
-$padding-base-vertical: 6px !default;
-$padding-base-horizontal: 12px !default;
-
-$pagination-color: $link-color !default;
-$pagination-bg: #fff !default;
-$pagination-border: #ddd !default;
-
-$pagination-hover-color: $link-hover-color !default;
-$pagination-hover-bg: $gray-lighter !default;
-$pagination-hover-border: #ddd !default;
-
-$pagination-active-color: #fff !default;
-$pagination-active-bg: $brand-primary !default;
-$pagination-active-border: $brand-primary !default;
-
-$pagination-disabled-color: $gray-light !default;
-$pagination-disabled-bg: #fff !default;
-$pagination-disabled-border: #ddd !default;
-
-$cursor-disabled: not-allowed !default;
-
-$padding-large-vertical: 10px !default;
-$padding-large-horizontal: 16px !default;
-
-$padding-small-vertical: 5px !default;
-$padding-small-horizontal: 10px !default;
-
-$font-size-base: 14px !default;
-$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
-
-$line-height-large: 1.3333333 !default; // extra decimals for Win 8.1 Chrome
-$line-height-small: 1.5 !default;
-
-$border-radius-large: 6px !default;
-$border-radius-small: 3px !default;
-
 .pagination {
   display: inline-block;
   padding-left: 0;
-  margin: $line-height-computed 0;
-  border-radius: $border-radius-base;
+  margin: 20px 0;
+  border-radius: 4px;
 
   > li {
-    display: inline; // Remove list-style and block-level defaults
+    display: inline;
     > a,
     > span {
       position: relative;
-      float: left; // Collapse white-space
-      padding: $padding-base-vertical $padding-base-horizontal;
-      line-height: $line-height-base;
+      float: left;
+      padding: 6px 12px;
+      line-height: 1.428571429;
       text-decoration: none;
-      color: $pagination-color;
-      background-color: $pagination-bg;
-      border: 1px solid $pagination-border;
+      color: #00BCD4;
+      background-color: #fff;
+      border: 1px solid #ddd;
       margin-left: -1px;
     }
     &:first-child {
@@ -95,9 +36,8 @@ $border-radius-small: 3px !default;
     &:hover,
     &:focus {
       z-index: 1;
-      color: $pagination-hover-color;
-      background-color: $pagination-hover-bg;
-      border-color: $pagination-hover-border;
+      background-color: #eee;
+      border-color: #ddd;
     }
   }
 
@@ -107,9 +47,9 @@ $border-radius-small: 3px !default;
     &:hover,
     &:focus {
       z-index: 1;
-      color: $pagination-active-color;
-      background-color: $pagination-active-bg;
-      border-color: $pagination-active-border;
+      color: #fff;
+      background-color: #00BCD4;
+      border-color: #00BCD4;
       cursor: default;
     }
   }
@@ -121,10 +61,10 @@ $border-radius-small: 3px !default;
     > a,
     > a:hover,
     > a:focus {
-      color: $pagination-disabled-color;
-      background-color: $pagination-disabled-bg;
-      border-color: $pagination-disabled-border;
-      cursor: $cursor-disabled;
+      color: #777;
+      background-color: #fff;
+      border-color: #ddd;
+      cursor: not-allowed;
     }
   }
 }
