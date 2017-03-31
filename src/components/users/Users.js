@@ -14,7 +14,7 @@ const spinnerStyle = {
 };
 
 const actionButtonStyle = {
-  marginRight: 20,
+  marginRight: 5,
   position: "fixed",
   bottom: 25,
   right: 15
