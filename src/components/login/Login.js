@@ -102,13 +102,16 @@ class Login extends React.Component {
 
           <Paper style={paperStyle}>
             <h2 style={titleStyle}>
-              Welcome to Demo 1
+              Welcome to Demo One
             </h2>
-            <TextField id="username" name="username" default="Username" fullWidth={true} style={textFieldStyle}
-                       autoFocus={true}
+            <p>This is a demo, refreshing the page will undo all of the changes you make.</p>
+            <p>Login credentials are "demo" and "pass" respectively.</p>
+            <TextField id="username" name="username" default="Username" hintText="Username"
+                       fullWidth={true} style={textFieldStyle} autoFocus={true}
                        onChange={(e) => {this.setState({username: e.target.value});}}
                        onKeyUp={this.handleKeyPress}/>
-            <TextField id="password" name="password" type="password" fullWidth={true} style={textFieldStyle}
+            <TextField id="password" name="password" type="password" hintText="Password"
+                       fullWidth={true} style={textFieldStyle}
                        onChange={(e) => {this.setState({password: e.target.value});}}
                        onKeyUp={this.handleKeyPress}/>
             <RaisedButton primary label="Log In" fullWidth={true} onClick={this.handleSubmit}/>
