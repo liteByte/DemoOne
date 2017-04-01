@@ -96,7 +96,8 @@ export default class Layout extends React.Component {
 
             {ABM("users", Users, ModifyUser, ModifyUser)}
 
-            <Route path="/a/map" render={() => createRestricted(<Map navigate={this.navigate}/>)}/>
+            <Route path="/a/map" render={() => createRestricted(<Map navigate={this.navigate}
+                                                                     query={this.context.router.route.location.search}/>)}/>
 
             <Redirect to="/"/>
 

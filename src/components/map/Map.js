@@ -50,8 +50,19 @@ class Map extends React.Component {
       markers: [],
       toShow: [],
       showInfoWindow: false,
-      infoWindow: null
+      infoWindow: null,
+      query: parseQuery(props.query)
     };
+
+    function parseQuery() {
+      const query = location.search.substr(1);
+      const result = {};
+      query.split("&").forEach(function (part) {
+        const item = part.split("=");
+        result[item[0]] = decodeURIComponent(item[1]);
+      });
+      return result;
+    }
   }
 
   componentDidMount() {
@@ -74,6 +85,8 @@ class Map extends React.Component {
           }),
           loading: false
         }, () => {
+          if (this.state.query.u && !isNaN(this.state.query.u))
+            this.showInfoWindow(parseInt(this.state.query.u, 10));
           // this.updateTable();
         });
       })
@@ -111,7 +124,11 @@ class Map extends React.Component {
   };
 
   handleMarkerClick = (e) => {
-    const marker = this.state.markers.find(m => m.key === e.key);
+    this.showInfoWindow(e.key);
+  };
+
+  showInfoWindow = (key) => {
+    const marker = this.state.markers.find(m => m.key === key);
     const state = {
       showInfoWindow: true,
       infoWindow: {
@@ -119,7 +136,7 @@ class Map extends React.Component {
           position: marker.position,
           key: marker.key + "i"
         },
-        user: this.state.users.find(u => u.user_id === e.key),
+        user: this.state.users.find(u => u.user_id === key),
         style: {opacity: 0}
       }
     };

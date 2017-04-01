@@ -62,7 +62,7 @@ class UsersTable extends React.Component {
           <Cell key={data[i].user_id + '-buttons'} minWidthPx={75}>
             <IconButton style={iconButtonStyle} onClick={() => this.modifyUser(data[i])}><IconEdit/></IconButton>
             <IconButton style={iconButtonStyle}
-                        onClick={() => this.props.navigate("/a/map")}><IconMapsPlace/></IconButton>
+                        onClick={() => this.props.navigate("/a/map?u=" + data[i].user_id)}><IconMapsPlace/></IconButton>
             <IconButton style={iconButtonStyle} onClick={() => this.confirmDelete(data[i])}><IconDelete/></IconButton>
           </Cell>
         </Row>
@@ -82,7 +82,7 @@ class UsersTable extends React.Component {
   deleteUser = () => {
 
     UserStore.deleteUser(this.token, this.state.toDelete.user_id)
-      .then(response => {
+      .then(() => {
         this.props.getUsers();
         this.setState({
           alert: alerts.SUCCESS
