@@ -62,9 +62,9 @@ class UsersTable extends React.Component {
       tableData.push(
         <Row key={data[i].user_id} striped>
           <Cell key={data[i].user_id + '-name'} minWidthPx={100}>{data[i].name + " " + data[i].last_name}</Cell>
-          <Cell key={data[i].user_id + '-dni'} minWidthPx={70}>{data[i].document_number}</Cell>
+          <Cell key={data[i].user_id + '-dni'} minWidthPx={55}>{data[i].document_number}</Cell>
           <Cell key={data[i].user_id + '-email'} minWidthPx={100}>{data[i].email}</Cell>
-          <Cell key={data[i].user_id + '-buttons'} minWidthPx={75}>
+          <Cell key={data[i].user_id + '-buttons'}>
             <div className="single-buttons">
               <IconButton style={iconButtonStyle} onClick={() => this.modifyUser(data[i])}><IconEdit/></IconButton>
               <IconButton style={iconButtonStyle}
@@ -135,10 +135,10 @@ class UsersTable extends React.Component {
       <div className="div-center">
         <Table material style={style}>
           <Row header key="header">
-            <Cell thead minWidthPx={100} key="cheader-1">Name</Cell>
-            <Cell thead minWidthPx={70} key="cheader-2">Id</Cell>
-            <Cell thead minWidthPx={100} key="cheader-3">Email</Cell>
-            <Cell thead minWidthPx={75} key="cheader-4">Actions</Cell>
+            <Cell thead minWidthPx={100} key="header-1">Name</Cell>
+            <Cell thead minWidthPx={55} key="header-2">Id</Cell>
+            <Cell thead minWidthPx={100} key="header-3">Email</Cell>
+            <Cell thead key="header-4">Actions</Cell>
           </Row>
           {this.getTable()}
         </Table>

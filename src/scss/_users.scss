@@ -30,3 +30,20 @@ input::-webkit-inner-spin-button {
     display: none;
   }
 }
+
+.user-search > div {
+  width: 100%;
+  float: left;
+
+  @media (min-width: 560px) {
+    width: 50% !important;
+  }
+
+  &:last-child {
+    text-align: center;
+
+    @media (min-width: 560px) {
+      text-align: right;
+    }
+  }
+}
