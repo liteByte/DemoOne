@@ -22,7 +22,7 @@ export default class Layout extends React.Component {
       responsiveMenu: false,
       loading: false,
       drawerOpen: false,
-      title: "Users"
+      title: this.getProperTitle(props.location.pathname)
     };
   }
 
@@ -38,7 +38,16 @@ export default class Layout extends React.Component {
   }
 
   navigate = (url) => {
+    this.setTitle(this.getProperTitle(url));
     this.context.router.history.push(url);
+  };
+
+  getProperTitle = (url) => {
+    if (/^\/a\/admin\/users/.test(url))
+      return "Users";
+    if (/^\/a\/map/.test(url))
+      return "Map";
+    return "Demo One";
   };
 
   setTitle = (title) => {

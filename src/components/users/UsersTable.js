@@ -1,6 +1,9 @@
 import React from "react";
 import {Cell, Row, Table} from "react-responsive-table";
-import FontIcon from "material-ui/FontIcon";
+import IconButton from "material-ui/IconButton";
+import IconEdit from "material-ui/svg-icons/editor/mode-edit";
+import IconDelete from "material-ui/svg-icons/action/delete";
+import IconMapsPlace from "material-ui/svg-icons/maps/place";
 import FlatButton from "material-ui/FlatButton";
 import Pagination from "react-js-pagination";
 import Alert from "../alert/Alert";
@@ -8,6 +11,12 @@ import UserStore from "../../stores/User";
 
 const style = {
   padding: 0
+};
+
+const iconButtonStyle = {
+  padding: 2,
+  width: 28,
+  height: 28
 };
 
 const alerts = {
@@ -51,12 +60,10 @@ class UsersTable extends React.Component {
           <Cell key={data[i].user_id + '-dni'} minWidthPx={70}>{data[i].document_number}</Cell>
           <Cell key={data[i].user_id + '-email'} minWidthPx={100}>{data[i].email}</Cell>
           <Cell key={data[i].user_id + '-buttons'} minWidthPx={75}>
-            <button className="user-button-icon" onClick={() => this.modifyUser(data[i])}>
-              <FontIcon className="material-icons">mode_edit</FontIcon>
-            </button>
-            <button className="user-button-icon" onClick={() => this.confirmDelete(data[i])}>
-              <FontIcon className="material-icons">delete</FontIcon>
-            </button>
+            <IconButton style={iconButtonStyle} onClick={() => this.modifyUser(data[i])}><IconEdit/></IconButton>
+            <IconButton style={iconButtonStyle}
+                        onClick={() => this.props.navigate("/a/map")}><IconMapsPlace/></IconButton>
+            <IconButton style={iconButtonStyle} onClick={() => this.confirmDelete(data[i])}><IconDelete/></IconButton>
           </Cell>
         </Row>
       )
