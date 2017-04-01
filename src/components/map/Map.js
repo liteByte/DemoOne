@@ -24,7 +24,7 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
     >
       <div id="infowindow" style={props.infoWindow.style}>
         <h2>{props.infoWindow.user.name + " " + props.infoWindow.user.last_name}</h2>
-        <RaisedButton label="Edit" primary onClick={props.onEditUser}/>
+        <RaisedButton label="Edit User" primary onClick={props.onEditUser}/>
       </div>
     </InfoWindow>
     }
