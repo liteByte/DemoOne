@@ -4,11 +4,7 @@ import {List, ListItem} from "material-ui/List";
 
 import IconHome from "material-ui/svg-icons/action/home";
 import IconAccountBox from "material-ui/svg-icons/action/account-box";
-import IconAccountBalance from "material-ui/svg-icons/action/account-balance";
-import IconTrendingUp from "material-ui/svg-icons/action/trending-up";
-import IconWork from "material-ui/svg-icons/action/work";
-import IconLocalHospital from "material-ui/svg-icons/maps/local-hospital";
-import IconClass from "material-ui/svg-icons/action/class";
+import IconMapsPlace from "material-ui/svg-icons/maps/place";
 
 export default class Drawer extends React.Component {
 
@@ -41,13 +37,9 @@ export default class Drawer extends React.Component {
             primaryTogglesNestedList={true}
             nestedItems={[
               this.createItem(1, 'Users', '/a/admin/users', <IconAccountBox/>),
-              this.createItem(2, 'Banks', '/a/admin/banks', <IconAccountBalance/>),
-              this.createItem(3, 'Specialities', '/a/admin/specialities', <IconTrendingUp/>),
-              this.createItem(4, 'Professionals', '/a/admin/professionals', <IconWork/>),
-              this.createItem(5, 'Insurances', '/a/admin/insurances', <IconLocalHospital/>),
-              this.createItem(6, 'Plans', '/a/admin/plans', <IconClass/>),
             ]}
           />
+          {this.createItem(0, 'Map', '/a/map', <IconMapsPlace/>)}
         </List>
       </MUIDrawer>
     );
