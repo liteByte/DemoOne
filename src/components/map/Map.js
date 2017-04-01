@@ -2,7 +2,8 @@ import React from "react";
 import UserStore from "../../stores/User";
 import Loading from "react-loading-spinner";
 import CircularProgress from "material-ui/CircularProgress";
-import {GoogleMap, Marker, withGoogleMap} from "react-google-maps";
+import {GoogleMap, InfoWindow, Marker, withGoogleMap} from "react-google-maps";
+import RaisedButton from "material-ui/RaisedButton";
 
 const spinnerStyle = {
   top: "50%",
@@ -17,10 +18,21 @@ const GettingStartedGoogleMap = withGoogleMap(props => (
     defaultCenter={{lat: 0, lng: 0}}
     onClick={props.onMapClick}
   >
+    {props.showInfoWindow &&
+    <InfoWindow
+      {...props.infoWindow.props}
+    >
+      <div id="infowindow" style={props.infoWindow.style}>
+        <h2>{props.infoWindow.user.name + " " + props.infoWindow.user.last_name}</h2>
+        <RaisedButton label="Edit" primary onClick={props.onEditUser}/>
+      </div>
+    </InfoWindow>
+    }
     {props.markers.map(marker => (
       <Marker
         {...marker}
         onRightClick={() => props.onMarkerRightClick(marker)}
+        onClick={() => props.onMarkerClick(marker)}
       />
     ))}
   </GoogleMap>
@@ -35,14 +47,10 @@ class Map extends React.Component {
 
     this.state = {
       users: [],
-      markers: [{
-        position: {
-          lat: 25.0112183,
-          lng: 121.52067570000001,
-        },
-        key: `Taiwan`,
-        defaultAnimation: 2,
-      }]
+      markers: [],
+      toShow: [],
+      showInfoWindow: false,
+      infoWindow: null
     };
   }
 
@@ -60,7 +68,8 @@ class Map extends React.Component {
             return {
               position: u.location,
               key: u.user_id,
-              defaultAnimation: 2
+              name: `${u.name} ${u.last_name}`,
+              defaultAnimation: 0
             }
           }),
           loading: false
@@ -95,30 +104,34 @@ class Map extends React.Component {
     this._mapComponent = map;
   };
 
-  handleMapClick = (event) => {
-    const nextMarkers = [
-      ...this.state.markers,
-      {
-        position: event.latLng,
-        defaultAnimation: 2,
-        key: Date.now(), // Add a key property for: http://fb.me/react-warning-keys
-      },
-    ];
+  handleMapClick = (e) => {
     this.setState({
-      markers: nextMarkers,
+      showInfoWindow: false
     });
   };
 
-  handleMarkerRightClick = (targetMarker) => {
-    /*
-     * All you modify is data, and the view is driven by data.
-     * This is so called data-driven-development. (And yes, it's now in
-     * web front end and even with google maps API.)
-     */
-    const nextMarkers = this.state.markers.filter(marker => marker !== targetMarker);
-    this.setState({
-      markers: nextMarkers,
-    });
+  handleMarkerClick = (e) => {
+    const marker = this.state.markers.find(m => m.key === e.key);
+    const state = {
+      showInfoWindow: true,
+      infoWindow: {
+        props: {
+          position: marker.position,
+          key: marker.key + "i"
+        },
+        user: this.state.users.find(u => u.user_id === e.key),
+        style: {opacity: 0}
+      }
+    };
+    this.setState(state);
+    setTimeout(() => {
+      state.infoWindow.style = {opacity: 1};
+      this.setState(state)
+    }, 50);
+  };
+
+  handleEditUser = () => {
+    this.props.navigate(`/a/admin/users/${this.state.infoWindow.user.user_id}/edit`);
   };
 
   render() {
@@ -127,15 +140,18 @@ class Map extends React.Component {
                spinner={() => <CircularProgress style={spinnerStyle}/>}>
         <GettingStartedGoogleMap
           containerElement={
-            <div style={{height: `100%`}}/>
+            <div style={{height: "100%"}}/>
           }
           mapElement={
-            <div style={{height: `100%`}}/>
+            <div style={{height: "100%"}}/>
           }
           onMapLoad={this.handleMapLoad}
           onMapClick={this.handleMapClick}
+          onMarkerClick={this.handleMarkerClick}
           markers={this.state.markers}
-          onMarkerRightClick={this.handleMarkerRightClick}
+          showInfoWindow={this.state.showInfoWindow}
+          infoWindow={this.state.infoWindow}
+          onEditUser={this.handleEditUser}
         />
       </Loading>
     )

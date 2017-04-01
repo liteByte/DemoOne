@@ -1,0 +1,8 @@
+.gm-style-iw + div {
+  display: none;
+}
+
+#infowindow {
+  opacity: 0;
+  transition: opacity 1s
+}
