@@ -2,6 +2,7 @@ import React from "react";
 import MUIDrawer from "material-ui/Drawer";
 import {List, ListItem} from "material-ui/List";
 import Subheader from "material-ui/Subheader";
+import Divider from "material-ui/Divider";
 
 import IconHome from "material-ui/svg-icons/action/home";
 import IconAccountBox from "material-ui/svg-icons/action/account-box";
@@ -44,6 +45,7 @@ export default class Drawer extends React.Component {
           />
           {this.createItem(0, 'Map', '/a/map', <IconMapsPlace/>)}
         </List>
+        <Divider/>
         <Subheader>liteByte</Subheader>
         <ListItem
           primaryText="Contact Us"
