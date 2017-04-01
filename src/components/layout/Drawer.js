@@ -1,10 +1,12 @@
 import React from "react";
 import MUIDrawer from "material-ui/Drawer";
 import {List, ListItem} from "material-ui/List";
+import Subheader from "material-ui/Subheader";
 
 import IconHome from "material-ui/svg-icons/action/home";
 import IconAccountBox from "material-ui/svg-icons/action/account-box";
 import IconMapsPlace from "material-ui/svg-icons/maps/place";
+import IconCommChat from "material-ui/svg-icons/communication/chat";
 
 export default class Drawer extends React.Component {
 
@@ -29,6 +31,7 @@ export default class Drawer extends React.Component {
         docked={false}
         onRequestChange={open => this.props.setDrawerOpen(open)}
       >
+        <Subheader>Demo One</Subheader>
         <List>
           <ListItem
             primaryText="Administration"
@@ -41,6 +44,12 @@ export default class Drawer extends React.Component {
           />
           {this.createItem(0, 'Map', '/a/map', <IconMapsPlace/>)}
         </List>
+        <Subheader>liteByte</Subheader>
+        <ListItem
+          primaryText="Contact Us"
+          leftIcon={<IconCommChat/>}
+          onClick={() => {window.open('http://litebyte.us/#contact', '_blank')}}
+        />
       </MUIDrawer>
     );
   }
