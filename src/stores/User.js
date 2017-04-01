@@ -13,7 +13,11 @@ class User extends Store {
       "name": "Robert",
       "last_name": "Smithson",
       "email": "robrob@email.com",
-      "roles": [{"name": "Administrator", "role_id": "1"}]
+      "roles": [{"name": "Administrator", "role_id": "1"}],
+      "location": {
+        "lat": 27.69937,
+        "lng": 96.60384
+      }
     },
     {
       "user_id": 2,
@@ -22,7 +26,11 @@ class User extends Store {
       "name": "Ed",
       "last_name": "Williams",
       "email": "edwilliams@email.com",
-      "roles": [{"name": "Operator", "role_id": "2"}]
+      "roles": [{"name": "Operator", "role_id": "2"}],
+      "location": {
+        "lat": -29.15575,
+        "lng": 151.68104
+      }
     },
     {
       "user_id": 3,
@@ -31,7 +39,11 @@ class User extends Store {
       "name": "Hunt",
       "last_name": "Wilkins",
       "email": "wilkins32@quintity.name",
-      "roles": [{"name": "Administrator", "role_id": "1"}]
+      "roles": [{"name": "Administrator", "role_id": "1"}],
+      "location": {
+        "lat": 60.99534,
+        "lng": 84.69393
+      }
     },
     {
       "user_id": 4,
@@ -40,7 +52,11 @@ class User extends Store {
       "name": "Maryann",
       "last_name": "Arnold",
       "email": "maryann.arnold@biohab.biz",
-      "roles": [{"name": "Administrator", "role_id": "1"}]
+      "roles": [{"name": "Administrator", "role_id": "1"}],
+      "location": {
+        "lat": 22.62290,
+        "lng": 19.21346
+      }
     },
     {
       "user_id": 5,
@@ -49,7 +65,11 @@ class User extends Store {
       "name": "Britney",
       "last_name": "Crawford",
       "email": "bcrawford@waretel.com",
-      "roles": [{"name": "Administrator", "role_id": "1"}]
+      "roles": [{"name": "Administrator", "role_id": "1"}],
+      "location": {
+        "lat": 66.90241,
+        "lng": -84.21835
+      }
     },
     {
       "user_id": 6,
@@ -58,7 +78,11 @@ class User extends Store {
       "name": "Silva",
       "last_name": "Marshall",
       "email": "silvam@exovent.co.uk",
-      "roles": [{"name": "Administrator", "role_id": "1"}]
+      "roles": [{"name": "Administrator", "role_id": "1"}],
+      "location": {
+        "lat": 52.11713,
+        "lng": 132.67729
+      }
     },
     {
       "user_id": 7,
@@ -67,7 +91,11 @@ class User extends Store {
       "name": "Lott",
       "last_name": "Bradford",
       "email": "lott.bradford@automon.biz",
-      "roles": [{"name": "Administrator", "role_id": "1"}]
+      "roles": [{"name": "Administrator", "role_id": "1"}],
+      "location": {
+        "lat": 77.40945,
+        "lng": -37.61542
+      }
     },
     {
       "user_id": 8,
@@ -76,7 +104,11 @@ class User extends Store {
       "name": "Sherman",
       "last_name": "Guy",
       "email": "shermanguy@gaptec.me",
-      "roles": [{"name": "Administrator", "role_id": "1"}]
+      "roles": [{"name": "Administrator", "role_id": "1"}],
+      "location": {
+        "lat": 5.72405,
+        "lng": -74.59147
+      }
     }
   ];
 

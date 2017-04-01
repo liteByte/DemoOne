@@ -16,6 +16,8 @@ class Users extends React.Component {
   constructor(props) {
     super(props);
 
+    this.token = localStorage.getItem('access-token');
+
     this.state = {
       users: [],
       usersToShow: [],
@@ -30,9 +32,7 @@ class Users extends React.Component {
 
   getUsers = () => {
 
-    const token = localStorage.getItem('access-token');
-
-    UserStore.get(token)
+    UserStore.get(this.token)
       .then(data => {
         this.setState({
           users: data.content,

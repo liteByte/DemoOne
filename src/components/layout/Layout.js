@@ -12,6 +12,8 @@ import Restricted from "../Restricted";
 import Users from "../users/Users";
 import ModifyUser from "../users/CreateModifyUser";
 
+import Map from "../map/Map";
+
 export default class Layout extends React.Component {
 
   constructor(props) {
@@ -79,6 +81,8 @@ export default class Layout extends React.Component {
           <Switch>
 
             {ABM("users", Users, ModifyUser, ModifyUser)}
+
+            <Route path="/a/map" render={() => createRestricted(<Map navigate={this.navigate}/>)}/>
 
             <Redirect to="/"/>
 
