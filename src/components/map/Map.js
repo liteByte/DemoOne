@@ -131,7 +131,7 @@ class Map extends React.Component {
   };
 
   handleEditUser = () => {
-    this.props.navigate(`/a/admin/users/${this.state.infoWindow.user.user_id}/edit`);
+    this.props.navigate(`/a/admin/users/${this.state.infoWindow.user.user_id}/edit?b=m`);
   };
 
   render() {

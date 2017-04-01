@@ -281,6 +281,13 @@ export default class NewAndModifyUser extends React.Component {
     return list;
   };
 
+  handleCancel = () => {
+    if (this.context.router.route.location.search === "?b=m")
+      this.props.navigate("/a/map");
+    else
+      this.props.navigate("/a/admin/users");
+  };
+
   render() {
     return (
       <Loading isLoading={this.state.loadingUser || this.state.loadingRoles}
@@ -337,7 +344,7 @@ export default class NewAndModifyUser extends React.Component {
               <Row key="buttons">
                 <Cell key="buttonCancel" style={{margin: "20px 0 10px auto"}}>
                   <RaisedButton label="Cancel" style={styles.button}
-                                onClick={() => this.props.navigate("/a/admin/users")}/>
+                                onClick={this.handleCancel}/>
                   <RaisedButton label="Save" disabled={!this.state.saveEnabled} primary={true} style={styles.button}
                                 onClick={this.saveUser}/>
                 </Cell>
