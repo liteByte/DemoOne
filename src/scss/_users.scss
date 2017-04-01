@@ -14,3 +14,19 @@ input::-webkit-inner-spin-button {
   color: rgb(189, 189, 189);
   margin: 10px 0 10px 20px;
 }
+
+.single-buttons {
+  display: none;
+
+  @media (min-width: 700px) {
+    display: block;
+  }
+}
+
+.menu-buttons {
+  display: block;
+
+  @media (min-width: 700px) {
+    display: none;
+  }
+}

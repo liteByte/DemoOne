@@ -1,13 +1,18 @@
 import React from "react";
 import {Cell, Row, Table} from "react-responsive-table";
 import IconButton from "material-ui/IconButton";
+import FlatButton from "material-ui/FlatButton";
+import MenuItem from "material-ui/MenuItem";
+import Pagination from "react-js-pagination";
+
 import IconEdit from "material-ui/svg-icons/editor/mode-edit";
 import IconDelete from "material-ui/svg-icons/action/delete";
 import IconMapsPlace from "material-ui/svg-icons/maps/place";
-import FlatButton from "material-ui/FlatButton";
-import Pagination from "react-js-pagination";
+import IconMoreVert from "material-ui/svg-icons/navigation/more-vert";
+
 import Alert from "../alert/Alert";
 import UserStore from "../../stores/User";
+import Popover from "../popover/Popover";
 
 const style = {
   padding: 0
@@ -60,10 +65,20 @@ class UsersTable extends React.Component {
           <Cell key={data[i].user_id + '-dni'} minWidthPx={70}>{data[i].document_number}</Cell>
           <Cell key={data[i].user_id + '-email'} minWidthPx={100}>{data[i].email}</Cell>
           <Cell key={data[i].user_id + '-buttons'} minWidthPx={75}>
-            <IconButton style={iconButtonStyle} onClick={() => this.modifyUser(data[i])}><IconEdit/></IconButton>
-            <IconButton style={iconButtonStyle}
-                        onClick={() => this.props.navigate("/a/map?u=" + data[i].user_id)}><IconMapsPlace/></IconButton>
-            <IconButton style={iconButtonStyle} onClick={() => this.confirmDelete(data[i])}><IconDelete/></IconButton>
+            <div className="single-buttons">
+              <IconButton style={iconButtonStyle} onClick={() => this.modifyUser(data[i])}><IconEdit/></IconButton>
+              <IconButton style={iconButtonStyle}
+                          onClick={() => this.props.navigate("/a/map?u=" + data[i].user_id)}><IconMapsPlace/></IconButton>
+              <IconButton style={iconButtonStyle} onClick={() => this.confirmDelete(data[i])}><IconDelete/></IconButton>
+            </div>
+            <div className="menu-buttons">
+              <Popover component={<IconButton><IconMoreVert/></IconButton>}>
+                <MenuItem primaryText="Edit" onClick={() => this.modifyUser(data[i])}/>
+                <MenuItem primaryText="Show on map"
+                          onClick={() => this.props.navigate("/a/map?u=" + data[i].user_id)}/>
+                <MenuItem primaryText="Delete" onClick={() => this.confirmDelete(data[i])}/>
+              </Popover>
+            </div>
           </Cell>
         </Row>
       )
