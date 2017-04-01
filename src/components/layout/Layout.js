@@ -43,10 +43,15 @@ export default class Layout extends React.Component {
   };
 
   getProperTitle = (url) => {
-    if (/^\/a\/admin\/users/.test(url))
+    function getRegex(t) {
+      return new RegExp('^' + t.replace('/', '\/')); // eslint-disable-line
+    }
+
+    if (getRegex("/a/admin/users").test(url))
       return "Users";
-    if (/^\/a\/map/.test(url))
+    if (getRegex("/a/map").test(url))
       return "Map";
+
     return "Demo One";
   };
 
