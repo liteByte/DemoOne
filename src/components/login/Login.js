@@ -107,6 +107,7 @@ class Login extends React.Component {
             <p>This is a demo, refreshing the page will undo all of the changes you make.</p>
             <p>Login credentials are "demo" and "pass" respectively.</p>
             <TextField id="username" name="username" default="Username" hintText="Username"
+                       autoCorrect="off" autoCapitalize="none"
                        fullWidth={true} style={textFieldStyle} autoFocus={true}
                        onChange={(e) => {this.setState({username: e.target.value});}}
                        onKeyUp={this.handleKeyPress}/>
