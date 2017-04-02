@@ -25,6 +25,11 @@ const iconButtonStyle = {
   height: 28
 };
 
+const cellStyle = {
+  textOverflow: 'ellipsis',
+  overflow: 'hidden'
+};
+
 const alerts = {
   DELETE: 'delete',
   SUCCESS: 'success',
@@ -62,10 +67,11 @@ class UsersTable extends React.Component {
     for (let i = startingItem; i < length; i++) {
       tableData.push(
         <Row key={data[i].user_id} striped>
-          <Cell key={data[i].user_id + '-name'} minWidthPx={100}>{data[i].name + " " + data[i].last_name}</Cell>
-          <Cell key={data[i].user_id + '-dni'} minWidthPx={55}>{data[i].document_number}</Cell>
-          <Cell key={data[i].user_id + '-email'} minWidthPx={100}>{data[i].email}</Cell>
-          <Cell key={data[i].user_id + '-buttons'}>
+          <Cell style={cellStyle} key={data[i].user_id + '-name'}
+                minWidthPx={100}>{data[i].name + " " + data[i].last_name}</Cell>
+          <Cell style={cellStyle} key={data[i].user_id + '-dni'} minWidthPx={55}>{data[i].document_number}</Cell>
+          <Cell style={cellStyle} key={data[i].user_id + '-email'} minWidthPx={100}>{data[i].email}</Cell>
+          <Cell style={cellStyle} key={data[i].user_id + '-buttons'}>
             <div className="single-buttons">
               <IconButton style={iconButtonStyle} onClick={() => this.modifyUser(data[i])}><IconEdit/></IconButton>
               <IconButton style={iconButtonStyle}
@@ -133,13 +139,13 @@ class UsersTable extends React.Component {
 
   render() {
     return (
-      <div className="div-center">
+      <div style={{textAlign: "center"}}>
         <Table material style={tableStyle}>
           <Row header key="header">
-            <Cell thead minWidthPx={100} key="header-1">Name</Cell>
-            <Cell thead minWidthPx={55} key="header-2">Id</Cell>
-            <Cell thead minWidthPx={100} key="header-3">Email</Cell>
-            <Cell thead key="header-4">Actions</Cell>
+            <Cell header minWidthPx={100} key="header-1">Name</Cell>
+            <Cell header minWidthPx={55} key="header-2">Id</Cell>
+            <Cell header minWidthPx={100} key="header-3">Email</Cell>
+            <Cell header key="header-4">Actions</Cell>
           </Row>
           {this.getTable()}
         </Table>
