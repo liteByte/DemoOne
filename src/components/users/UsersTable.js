@@ -14,8 +14,9 @@ import Alert from "../alert/Alert";
 import UserStore from "../../stores/User";
 import Popover from "../popover/Popover";
 
-const style = {
-  padding: 0
+const tableStyle = {
+  padding: 0,
+  marginBottom: 50
 };
 
 const iconButtonStyle = {
@@ -133,7 +134,7 @@ class UsersTable extends React.Component {
   render() {
     return (
       <div className="div-center">
-        <Table material style={style}>
+        <Table material style={tableStyle}>
           <Row header key="header">
             <Cell thead minWidthPx={100} key="header-1">Name</Cell>
             <Cell thead minWidthPx={55} key="header-2">Id</Cell>

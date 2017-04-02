@@ -29,7 +29,7 @@ export default class UserSearch extends React.Component {
       <div className="user-search">
         <TextField hintText="Search by name, id or email" style={{minWidth: 256}} fullWidth
                    onChange={this.props.search}/>
-        <div>
+        <div style={{textAlign: "right"}}>
           <RaisedButton label="Create User" primary={true} style={{minWidth: 170}}
                         onClick={() => this.props.navigate("/a/admin/users/create")}/>
         </div>

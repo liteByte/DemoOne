@@ -1,9 +1,13 @@
 import React from "react";
+
 import UsersTable from "./UsersTable";
 import UserSearch from "./UserSearch";
 import UserStore from "../../stores/User";
+
 import Loading from "react-loading-spinner";
 import CircularProgress from "material-ui/CircularProgress";
+import FloatingActionButton from "material-ui/FloatingActionButton";
+import ContentAdd from "material-ui/svg-icons/content/add";
 
 const spinnerStyle = {
   top: "50%",
@@ -71,6 +75,10 @@ class Users extends React.Component {
         <div style={{padding: 20}}>
           <UserSearch search={this.search} navigate={this.props.navigate}/>
           <UsersTable getUsers={this.getUsers} data={this.state.usersToShow} navigate={this.props.navigate}/>
+          <FloatingActionButton className="btn-float-create"
+                                onClick={() => this.props.navigate("/a/admin/users/create")}>
+            <ContentAdd/>
+          </FloatingActionButton>
         </div>
       </Loading>
     )
