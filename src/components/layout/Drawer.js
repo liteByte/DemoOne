@@ -8,6 +8,7 @@ import IconHome from "material-ui/svg-icons/action/home";
 import IconAccountBox from "material-ui/svg-icons/action/account-box";
 import IconMapsPlace from "material-ui/svg-icons/maps/place";
 import IconCommChat from "material-ui/svg-icons/communication/chat";
+import IconDevMode from "material-ui/svg-icons/device/developer-mode";
 
 export default class Drawer extends React.Component {
 
@@ -51,6 +52,11 @@ export default class Drawer extends React.Component {
           primaryText="Contact Us"
           leftIcon={<IconCommChat/>}
           onClick={() => {window.open('http://litebyte.us/#contact', '_blank')}}
+        />
+        <ListItem
+          primaryText="Source Code"
+          leftIcon={<IconDevMode/>}
+          onClick={() => {window.open('https://github.com/liteByte/DemoOne', '_blank')}}
         />
       </MUIDrawer>
     );
