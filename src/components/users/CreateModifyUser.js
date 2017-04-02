@@ -32,7 +32,7 @@ const styles = {
     width: "100%",
   },
   button: {
-    margin: "auto 10px auto 50px",
+    margin: "0 20px",
   },
 };
 
@@ -342,7 +342,7 @@ export default class NewAndModifyUser extends React.Component {
               </Row>
               }
               <Row key="buttons">
-                <Cell key="buttonCancel" style={{margin: "20px 0 10px auto"}}>
+                <Cell key="buttonCancel" style={{margin: "20px auto"}}>
                   <RaisedButton label="Cancel" style={styles.button}
                                 onClick={this.handleCancel}/>
                   <RaisedButton label="Save" disabled={!this.state.saveEnabled} primary={true} style={styles.button}
