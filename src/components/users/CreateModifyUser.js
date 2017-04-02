@@ -310,26 +310,26 @@ export default class NewAndModifyUser extends React.Component {
                 </SelectField>
                 <TextField id="dni" defaultValue={this.state.form.document_number} onBlur={this.handle.doc}
                            errorText={this.state.error.doc} key="docCell" type="number"
-                           hintText="Nro de Documento" required
+                           hintText="Nro de Documento"
                            style={{margin: "auto 0px 5px 10px", width: 175}}/>
               </Row>
               <Row key="nameRow">
                 <Cell key="nameText" style={styles.cell}>
                   <TextField id="name" defaultValue={this.state.form.name} onBlur={this.handle.name}
-                             errorText={this.state.error.name} fullWidth hintText="Name" required
+                             errorText={this.state.error.name} fullWidth hintText="Name"
                              style={{margin: "0 10px 0 0"}}/>
                 </Cell>
               </Row>
               <Row>
                 <Cell key="lastNameText" style={styles.cell}>
                   <TextField id="lastName" defaultValue={this.state.form.last_name} onBlur={this.handle.lastName}
-                             errorText={this.state.error.lastName} fullWidth hintText="Last name" required/>
+                             errorText={this.state.error.lastName} fullWidth hintText="Last name"/>
                 </Cell>
               </Row>
               <Row key="emailRow">
                 <Cell minWidthPx={100} key="emailCell" style={styles.cell}>
                   <TextField id="email" defaultValue={this.state.form.email} onBlur={this.handle.email}
-                             errorText={this.state.error.email} fullWidth hintText="Email" required/>
+                             errorText={this.state.error.email} fullWidth hintText="Email"/>
                 </Cell>
               </Row>
               <List>
